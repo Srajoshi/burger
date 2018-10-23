@@ -2,7 +2,7 @@
 $(function() {
   $(".change-devoured").on("click", function(event) {
     var id = $(this).data("id");
-    var newSleep = $(this).data("newdevoured");
+    var newDevoured = $(this).data("newdevoured");
 
     var newDevouredState = {
       devoured: newDevoured
@@ -27,11 +27,12 @@ $(function() {
 
     var newBurger = {
       name: $("#ca").val().trim(),
+      // devoured: false
       devoured: $("[name=devoured]:checked").val().trim()
     };
 
     // Send the POST request.
-    $.ajax("/api/burgerss", {
+    $.ajax("/api/burgers", {
       type: "POST",
       data: newBurger
     }).then(
